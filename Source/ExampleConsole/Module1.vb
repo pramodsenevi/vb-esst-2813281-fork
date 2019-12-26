@@ -1,11 +1,21 @@
 ﻿Module Module1
 
 	Sub Main()
-		' do something here
-
-		' Wait for user entry, 
-		' a crude way to stop the program ending before we can see the results
-		Console.ReadLine()
+		Dim counter = 2
+		Dim outputString
+		Dim currentChar = "-"c
+		Do
+			counter = counter + 1
+			If counter > 30 Then
+				counter = 2
+			End If
+			If Console.KeyAvailable Then
+				currentChar = Console.ReadKey.KeyChar
+			End If
+			outputString = New String(currentChar, counter)
+			Console.WriteLine(outputString)
+			Threading.Thread.Sleep(120)
+		Loop While currentChar <> " "c
 	End Sub
 
 End Module
